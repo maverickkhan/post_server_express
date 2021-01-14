@@ -2,11 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv/config');
 //Import routes
 const postRoutes = require('./routes/posts')
 
 //middlewares
+app.use(cors());
 app.use(bodyParser.json());
 
 /* app.use('/posts', () => {
@@ -36,4 +38,4 @@ mongoose.connect(process.env.DB_CONNECTIONS,
 })
 
 //port listening
-app.listen(3000);
+app.listen((3000), console.log('app running at port 3000'));
